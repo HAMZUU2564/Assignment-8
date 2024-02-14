@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image generation</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <style>
+        body{
+            background-color: black;
+        }
+        h1{
+            color: #ffc451;
+        }
+        h2{
+            color: #ffc451;
+        }
+        h3{
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        ol{
+            color: #ffc451;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1><u>Image generation</u></h1>
+        <p>Learn how to generate or manipulate images with DALL·E in the API.</p><br><br>
+        <h2>Introduction</h2>
+        <p>The Images API provides three methods for interacting with images:</p><br>
+    </center>
+    <ol type="I">
+        <li>Creating images from scratch based on a text prompt (DALL·E 3 and DALL·E 2)</li>
+        <li>Creating edited versions of images by having the model replace some areas of a pre-existing image, based on a new text prompt (DALL·E 2 only)</li>
+        <li>Creating variations of an existing image (DALL·E 2 only)</li>
+    </ol>
+    <p>This guide covers the basics of using these three API endpoints with useful code samples. To try DALL·E 3, head to ChatGPT. To try DALL·E 2, check out the DALL·E preview app.</p>
+    <center>
+        <h2>Usage</h2>
+        <h3><u>Generations</u></h3>
+        <p>The image generations endpoint allows you to create an original image given a text prompt. When using DALL·E 3, images can have a size of 1024x1024, 1024x1792 or 1792x1024 pixels. <br><br>
+            By default, images are generated at standard quality, but when using DALL·E 3 you can set quality: "hd" for enhanced detail. Square, standard quality images are the fastest to generate. <br> <br>
+            You can request 1 image at a time with DALL·E 3 (request more by making parallel requests) or up to 10 images at a time using DALL·E 2 with the n parameter.</p><br>
+            <img src="assets/img/code/Capture 9.PNG" alt="">
+    </center>
+    <p><b><box-icon name='image-alt' animation='fade-right' color='#ffc451' ></box-icon>What is new with DALL·E 3</b></p><br><br>
+    <center>
+        <h2>Prompting</h2>
+        <p>With the release of DALL·E 3, the model now takes in the default prompt provided and automatically re-write it for safety reasons, and to add more detail (more detailed prompts generally result in higher quality images). <br><br>
+            While it is not currently possible to disable this feature, you can use prompting to get outputs closer to your requested image by adding the following to your prompt: I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:. <br><br>
+            The updated prompt is visible in the revised_prompt field of the data response object.</p><br><br>
+            <h2>Example DALL·E 3 generations</h2>
+            <img src="assets/img/code/10.PNG" alt=""><br><br>
+    </center>
+    <p>Each image can be returned as either a URL or Base64 data, using the response_format parameter. URLs will expire after an hour.</p><br><br>
+    <center>
+        <h3><u>Edits (DALL·E 2 only)</u></h3>
+        <p>Also known as "inpainting", the image edits endpoint allows you to edit or extend an image by uploading an image and mask indicating which areas should be replaced. The transparent areas of the mask indicate where the image should be edited, and the prompt should describe the full new image, not just the erased area. This endpoint can enable experiences like the editor in our DALL·E preview app.</p><br>
+        <img src="assets/img/code/11.PNG" alt=""><br><br>
+        <img src="assets/img/code/12.PNG" alt=""><br>
+        <p>The uploaded image and mask must both be square PNG images less than 4MB in size, and also must have the same dimensions as each other. The non-transparent areas of the mask are not used when generating the output, so they don’t necessarily need to match the original image like the example above.</p><br><br>
+        <h3><u>Variations (DALL·E 2 only)</u></h3>
+        <p>The image variations endpoint allows you to generate a variation of a given image.</p><br><br>
+        <img src="assets/img/code/13.PNG" alt=""><br><br>
+        <img src="assets/img/code/14.PNG" alt=""><br><br>
+    </center>
+    <p>Similar to the edits endpoint, the input image must be a square PNG image less than 4MB in size.</p><br><br>
+    <center>
+        <h3><u>Content moderation</u></h3>
+        <p>Prompts and images are filtered based on our content policy, returning an error when a prompt or image is flagged.</p><br>
+        <h2>Language-specific tips</h2>
+        <h3><u>Using in-memory image data</u></h3>
+        <p>The Node.js examples in the guide above use the fs module to read image data from disk. In some cases, you may have your image data in memory instead. Here's an example API call that uses image data stored in a Node.js Buffer object:</p><br><br>
+        <img src="assets/img/code/15.PNG" alt=""><br><br>
+        <h3><u>Working with TypeScript</u></h3>
+        <p>If you're using TypeScript, you may encounter some quirks with image file arguments. Here's an example of working around the type mismatch by explicitly casting the argument:</p><br><br>
+        <img src="assets/img/code/16.PNG" alt=""><br><br>
+    <p>And here's a similar example for in-memory image data:</p><br><br>
+        <img src="assets/img/code/17.PNG" alt=""><br><br>
+        <h3><u>Error handling</u></h3>
+        <p>API requests can potentially return errors due to invalid inputs, rate limits, or other issues. These errors can be handled with a try...catch statement, and the error details can be found in either error.response or error.message:</p><br><br>
+        <img src="assets/img/code/18.PNG" alt=""><br><br><br>
+    </center>
+
+
+
+
+
+</body>
+</html>

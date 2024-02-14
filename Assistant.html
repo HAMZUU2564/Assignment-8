@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistants-Beta</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body{
+            background-color: black;
+        }
+        h1{
+            color: #ffc451;
+        }
+        h2{
+            color: #ffc451;
+        }
+        h3{
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        ol{
+            color: #ffc451;
+        }
+        ul{
+            color: #ffc451;
+        }
+        i{
+            color: #ffc451 ;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Assistants API</h1>
+        <p>The Assistants API allows you to build AI assistants within your own applications. An Assistant has instructions and can leverage models, tools, and knowledge to respond to user queries. The Assistants API currently supports three types of tools: Code Interpreter, Retrieval, and Function calling. In the future, we plan to release more OpenAI-built tools, and allow you to provide your own tools on our platform. <br><br>
+            You can explore the capabilities of the Assistants API using the Assistants playground or by building a step-by-step integration outlined in this guide. At a high level, a typical integration of the Assistants API has the following flow:</p><br><br>
+    </center>
+    <ol type="I">
+        <li>Create an Assistant in the API by defining its custom instructions and picking a model. If helpful, enable tools like Code Interpreter, Retrieval, and Function calling.</li>
+        <li>Create a Thread when a user starts a conversation.</li>
+        <li>Add Messages to the Thread as the user ask questions.</li>
+        <li>Run the Assistant on the Thread to trigger responses. This automatically calls the relevant tools.</li>
+    </ol><br>
+    <p>This starter guide walks through the key steps to create and run an Assistant that uses Code Interpreter.</p>
+    <center>
+        <h2>Assistants playground</h2>
+        <p>In addition to the Assistants API, we also provide an Assistants playground (sign in required). The playground is a great way to explore the capabilities of the Assistants API and learn how to build your own Assistant without writing any code.</p><br><br>
+        <h3><u>Step 1: Create an Assistant
+        </u></h3>
+        <p>An Assistant represents an entity that can be configured to respond to users’ Messages using several parameters like:</p><br><br>
+    </center>
+        <ul>
+            <li>Instructions: how the Assistant and model should behave or respond</li>
+            <li>Model: you can specify any GPT-3.5 or GPT-4 models. The Retrieval tool requires at least gpt-3.5-turbo-1106 (newer versions are supported) or gpt-4-turbo-preview models.</li>
+            <li>Note: Support for fine-tuned models in the Assistants API is coming soon</li>
+            <li>Tools: the API supports Code Interpreter and Retrieval that are built and hosted by OpenAI.</li>
+            <li>Functions: the API allows you to define custom function signatures, with similar behavior as our function calling feature.</li>
+        </ul><br><br>
+        <p>In this example, we're creating an Assistant that is a personal math tutor, with the Code Interpreter tool enabled.</p><br>
+        <center>
+            <img src="assets/img/code/19.PNG" alt=""><br><br>
+            <h3><u>Step 2: Create a Thread</u></h3>
+            <p>A Thread represents a conversation. We recommend creating one Thread per user as soon as the user initiates the conversation. Pass any user-specific context and files in this thread by creating Messages.</p><br><br>
+            <img src="assets/img/code/20.PNG" alt=""><br><br>
+            <p>Threads don’t have a size limit. You can add as many Messages as you want to a Thread. The Assistant will ensure that requests to the model fit within the maximum context window, using relevant optimization techniques such as truncation which we have tested extensively with ChatGPT. When you use the Assistants API, you delegate control over how many input tokens are passed to the model for any given Run, this means you have less control over the cost of running your Assistant in some cases but do not have to deal with the complexity of managing the context window yourself. <br><br>
+                Organizations that have enabled the Threads page can view Threads created through the Assistants API and Assistants playground. Threads page permissions can be managed in Organization settings.</p><br><br>
+                <h3><u>Step 3: Add a Message to a Thread</u></h3>
+                <p>A Message contains text, and optionally any files that you allow the user to upload. Messages need to be added to a specific Thread. Adding images via message objects like in Chat Completions using GPT-4 with Vision is not supported today, but we plan to add support for them in the coming months. You can still upload images and have them processes via retrieval.</p><br><br>
+                <img src="assets/img/code/21.PNG" alt=""><br>
+                <p>Now if you list the Messages in a Thread, you will see that this message has been appended.</p><br><br>
+                <img src="assets/img/code/22.PNG" alt=""><br><br>
+                <h3><u>Step 4: Run the Assistant</u></h3>
+                <p>For the Assistant to respond to the user message, you need to create a Run. This makes the Assistant read the Thread and decide whether to call tools (if they are enabled) or simply use the model to best answer the query. As the run progresses, the assistant appends Messages to the thread with the role="assistant". The Assistant will also automatically decide what previous Messages to include in the context window for the model. This has both an impact on pricing as well as model performance. The current approach has been optimized based on what we learned building ChatGPT and will likely evolve over time. <br><br>
+                    You can optionally pass new instructions to the Assistant while creating the Run but note that these instructions override the default instructions of the Assistant.</p><br><br>
+                    <img src="assets/img/code/23.PNG" alt=""><br><br>
+                    <h3><u>Step 5: Check the Run status</u></h3>
+                    <p>By default, a Run goes into the queued state. You can periodically retrieve the Run to check on its status to see if it has moved to completed.</p><br><br>
+                    <img src="assets/img/code/24.PNG" alt=""><br><br>
+                    <h3><u>Step 6: Display the Assistant's Response</u></h3>
+                    <p>Once the Run completes, you can list the Messages added to the Thread by the Assistant.</p><br><br>
+                    <img src="assets/img/code/25.PNG" alt=""><br><br>
+                    <p>And finally, display them to the user! During this Run, the Assistant added two new Messages to the Thread. Here is an example of what that might look like: <br>You can also retrieve the Run Steps of this Run if you'd like to explore or display the inner workings of the Assistant and its tools.</p><br><br>
+                </center>
+                    <h2>Next</h2>
+                    <ol>
+                        <li>Dive deeper into How Assistants work</li>
+                        <li>Learn more about Tools</li>
+                        <li>Explore the Assistants playground</li>
+                    </ol><br><br>
+                    <p>Was this page useful?  <i class="bi bi-hand-thumbs-up"></i>   <i class="bi bi-hand-thumbs-down"></i></p>
+</body>
+</html>

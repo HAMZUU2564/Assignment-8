@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text generation</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        h1 {
+            color: #ffc451;
+        }
+
+        h2 {
+            color: #ffc451;
+        }
+
+        h3 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+
+        #imp {
+            color: #ffc451;
+        }
+
+        ul {
+            color: #ffc451;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Text generation models</h1>
+        <p>
+            OpenAI's text generation models (often called generative pre-trained transformers or large language models)
+            have been trained to understand natural language, code, and images. The models provide text outputs in
+            response to their inputs. The inputs to these models are also referred to as "prompts". Designing a prompt
+            is essentially how you “program” a large language model model, usually by providing instructions or some
+            examples of how to successfully complete a task.
+            <br><br>
+            Using OpenAI's text generation models, you can build applications to:
+        </p>
+    </center>
+    <br>
+    <ul>
+        <li>Draft documents/li>
+    </ul>
+    <ul>
+        <li>Write computer code</li>
+    </ul>
+    <ul>
+        <li>Answer questions about a knowledge base</li>
+    </ul>
+    <ul>
+        <li>Analyze texts</li>
+    </ul>
+    <ul>
+        <li>Give software a natural language interface</li>
+    </ul>
+    <ul>
+        <li>Tutor in a range of subjects</li>
+    </ul>
+    <ul>
+        <li>Translate languages</li>
+    </ul>
+    <ul>
+        <li>Simulate characters for games</li>
+    </ul>
+    <p><b><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAiZJREFUSEvtlb1rU2EUh59zbyIuolWHtn6g4KSoHTKoudEWHMRC2hQCUUTBIv4JFkQ6uLg5uYgufuBHwWtbwUWxtUmsWJcWHVVqwdZNBG17kxy5aWxzP5rQIVvPeO7vPc97fu/7nis0OKTB9VkH1HW4pkWaTbaikTOIdgK7QZqXKuosMI3wAnggcfvnaqRQgObTW1HnOiqXAbPONgsIt9DiNbGGfvu1AYDmk/somW+Blrr9ewTyFTXbJTEwXZ32APRd9x6KMgFs8xWfQ6SXRed9OR+NHgO9C2z36JQZosWYHBma+59fBuib9gjRpg9AW6C4E2mTjgHX9+XQ8Z6dFHQSaPLpR8SyO4KAsdQVhBshtpwTy36oo10HMY3H5e/FUkZODE5pLnUJ5XZgjXJBEvY9N7/SQbbnC+jegNiJtLi712zqE7C/8v2zWPaBShffQzb1USw75gN4CqysqQXIp3dQKsyEACbFsg97AblUBuVRsF05L4ln90MtGktdRHAP2xtCt8TtQS9A+w1yk1ngaPAGccj/mCr2TAFbfDfptSTsk4FDdhM6kd7MvPMKpOxfVcyC0YthjLMwb7AhEke5E7imMMLGQqfEhv+EAsqQbHITmO4IOB7i7eopkef8+puR0y8XqkXho+Jp2qTV6Qe5Chh1QItAn1j2zTBd7WE32rULwziLcGpp2NEMosAPKH1DZBiz+KT65QbPe00+rF28/ker61nDLfoHvnvAGQJiuXIAAAAASUVORK5CYII=" />
+            Explore GPT-4 Turbo with image inputs</b></p>
+    <p><b><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAeBJREFUSEu1lM9LFGEYxz9fRBKMDp0jOnSoSwZ2kRkNF4JAipkNI/wD9iTegwjCS6eOQaeEOkTRjotEl/wRu64ePBREt8gI8yJ5CQmdnaesXN2ccWZHnOO8z/v5Ps/3eZ9HHPGnI+aTW8AWvDM09PRPgs6FAeleFJdsLgGrFn3EE7Bu4L3c4GKSE20J2FKpk59rD8BGm0DTFfWX3xxa4J8lk0DPLkxTcsvXD+pjpgpsvjiE2TPg+B7YFrLzciY/5RaItWSXdl9ucDvtFSZWEG9JE7dKV3hWl6Y2cgn8fSU2AZyIB+gz2ATGDOH6ogbnwkxNTrEkifEDqGKapkMz9L18J2E7wS0WWc2fBgppZaecL8oN+pIEloDeQwrMyg2aSbZWYIi614NpEFH47fFAch9i06jQFY7sbf6Bc2DPhzs4tdVLQwXErdYh+19Ad+WWx/f9zWqH1fzXwNWY+A3EiJygknvZWf3GOaLoI+zbvsuIa3KCD5meaVKQzRcfYVZqORdviTZ99b9az70qti9affgkUfgNONYEyR6y0jmmmy8aaRanLjureneQdpoXIkpygsdp4Ng5iLtkNe8L6DTwHSJPbqWaFb4dl15BzV/A6CaKhnS58rUdeCaBdoG55yCv0C/q5aAZqQyLBAAAAABJRU5ErkJggg==" />
+            GPT-4 Turbo</p> <br> <br>
+    <center>
+        <h2>Chat Completions API</b></h2>
+        <p>
+            Chat models take a list of messages as input and return a model-generated message as output.
+            Although
+            the chat format is designed to make multi-turn conversations easy, it’s just as useful for
+            single-turn
+            tasks without any conversation. <br>
+            An example Chat Completions API call looks like the following:
+        </p>
+        <p>
+            To learn more, you can view the full API reference documentation for the Chat API. <br>
+            The main input is the messages parameter. Messages must be an array of message objects, where each
+            object has a role (either "system", "user", or "assistant") and content. Conversations can be as
+            short as one message or many back and forth turns. <br>
+            Typically, a conversation is formatted with a system message first, followed by alternating user and
+            assistant messages. <br>
+            The system message helps set the behavior of the assistant. For example, you can modify the
+            personality of the assistant or provide specific instructions about how it should behave throughout
+            the conversation. However note that the system message is optional and the model’s behavior without
+            a system message is likely to be similar to using a generic message such as "You are a helpful
+            assistant." <br>
+            The user messages provide requests or comments for the assistant to respond to. Assistant messages
+            store previous assistant responses, but can also be written by you to give examples of desired
+            behavior. <br>
+            Including conversation history is important when user instructions refer to prior messages. In the
+            example above, the user’s final question of "Where was it played?" only makes sense in the context
+            of the prior messages about the World Series of 2020. Because the models have no memory of past
+            requests, all relevant information must be supplied as part of the conversation history in each
+            request. If a conversation cannot fit within the model’s token limit, it will need to be shortened
+            in some way.
+        </p>
+    </center> <br>
+    <ul>
+        <li>stop: API returned complete message, or a message terminated by one of the stop sequences provided via the
+            stop parameter</li>
+    </ul>
+    <ul>
+        <li>length: Incomplete model output due to max_tokens parameter or token limit</li>
+    </ul>
+    <ul>
+        <li>function_call: The model decided to call a function</li>
+    </ul>
+    <ul>
+        <li>content_filter: Omitted content due to a flag from our content filters</li>
+    </ul>
+    <ul>
+        <li>null: API response still in progress or incomplete</li>
+    </ul> <br> <br>
+    <p>Depending on input parameters, the model response may include different information.</p> <br> <br>
+    <center>
+        <h2>JSON mode </h2>
+        <p>A common way to use Chat Completions is to instruct the model to always return a JSON object that makes sense
+            for your use case, by specifying this in the system message. While this does work in some cases,
+            occasionally the models may generate output that does not parse to valid JSON objects. <br>
+            To prevent these errors and improve model performance, when calling gpt-4-turbo-preview or
+            gpt-3.5-turbo-0125, you can set response_format to { "type": "json_object" } to enable JSON mode. When JSON
+            mode is enabled, the model is constrained to only generate strings that parse into valid JSON object.</p>
+        <br> <br>
+    </center>
+    <p id="imp"><u><b>Important notes:</b></u></p>
+    <ul>
+        <li>When using JSON mode, always instruct the model to produce JSON via some message in the conversation, for
+            example via your system message. If you don't include an explicit instruction to generate JSON, the model
+            may generate an unending stream of whitespace and the request may run continually until it reaches the token
+            limit. To help ensure you don't forget, the API will throw an error if the string "JSON" does not appear
+            somewhere in the context.</li>
+    </ul>
+    <ul>
+        <li>The JSON in the message the model returns may be partial (i.e. cut off) if finish_reason is length, which
+            indicates the generation exceeded max_tokens or the conversation exceeded the token limit. To guard against
+            this, check finish_reason before parsing the response.</li>
+    </ul>
+    <ul>
+        <li>JSON mode will not guarantee the output matches any specific schema, only that it is valid and parses
+            without errors.</li>
+    </ul> <br>
+    <p>In this example, the response includes a JSON object that looks something like the following:<br><br>Note that
+        JSON mode is always enabled when the model is generating arguments as part of function calling.</p> <br><br>
+    <center>
+        <h2>Reproducible outputs</h2>
+        <p>Chat Completions are non-deterministic by default (which means model outputs may differ from request to
+            request). That being said, we offer some control towards deterministic outputs by giving you access to the
+            seed parameter and the system_fingerprint response field.
+        </p> <br>
+    </center>
+    <p>To receive (mostly) deterministic outputs across API calls, you can:</p><br><br>
+    <ul>
+        <li>Set the seed parameter to any integer of your choice and use the same value across requests you'd like
+            deterministic outputs for.</li>
+    </ul>
+    <ul>
+        <li>Ensure all other parameters (like prompt or temperature) are the exact same across requests.</li>
+    </ul> <br>
+    <p>Sometimes, determinism may be impacted due to necessary changes OpenAI makes to model configurations on our end.
+        To help you keep track of these changes, we expose the system_fingerprint field. If this value is different, you
+        may see different outputs due to changes we've made on our systems.</p>
+    <p><b><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAxdJREFUSEu1lU1sFVUUx3/nzry6ITGlhBZoSVEIsCEYYorttNWdH7F2HikBYykhEsANMS6ICxNXuCK6MdE0RiUa0SZvXpvoFug8+xEWsAIWGii0IVIQNmzamTlm5vW9vq/yXgzc5dwz/9895/zPvcJzXvKc9WkIoNPubiI+Q+lbOdAlTPi5dE/8Ve+AdQE6NbCdyJoF1leI3cfSLnkte/tpkJoAvTjURlMwitIDNCcCygUMpxE7RRR8CQytCD8CJons49I3tlgJqwIk4qngKtBWFmzsdukeW0hYM+l2Ar1bLqZ30OW90vt7DCyuakBu8GeQ94FxLD4lsJ9A8Lr0eudLf1TfPUIUXaTJrCPkHPAW8K043sk6ADdOcwNCq/R49+s1McnIT7+E6N/AnDhe55oAnR7sJJRbSYAdtsn+iX8aAuQGNoMVly8ijDqlf7xYvmKJ9PJ7HVgmdssmYAl0WJzsb7UAOjPQSmCOiZP9Ip/B4GFEfgCagAWM3VXo1yog5/4KHAT9A5Malu6xf2uKT6Y3YZgE3Q7ysTiZrxLIrNvCMj8BbwLnxfFG4u+rAN99jPAilm6r9Lb66U+wrAuYUAj0EvAyyC3CsL+0HMlAhlwHFsXxNpYDcm584mZMuKN0QtVPf4To14mgagqhvZZ4kkVuYCdYN4GH4ngbKjP4BeEQMMGyjsgb2cfJT/m5mAYK7riNLb2yPzNfZtupofVEQWzld4AfxfGOlgPyTb4CtOabLEfEycR9KQyWn3dXDfHyJt8lki7py9wrAyRCpTY1dktpo5O9JQ1La17IQP90N6LElo4w9taCg6oA+Tq6cepbsKWjsgxrzYT6Q1uRYA5lXnq9jjqTnP4eNK7fOIRniFIvYIV7pCcbW7C41E8PI3IDjZYRPQvyNsh34mQ+fDogn+61lYFbjRXplJ7MXFUpVyPm0KVX6l52iUAyTDoKdBeva5hB9BShMRj9Bnh1RfsB4BPZJxq6rivrrJff3YZlx+5qqdj7/w9OFWTqwC6iKO7BvvyezGKCD57Jk7mWcxr9XvdNblRorbj/AEvyPChhIcNTAAAAAElFTkSuQmCC" />
+            Deterministic outputs</b></p>
+    <center>
+        <h2>Managing tokens</h2>
+        <p>Language models read and write text in chunks called tokens. In English, a token can be as short as one
+            character or as long as one word (e.g., a or apple), and in some languages tokens can be even shorter than
+            one character or even longer than one word.</p>
+        <p>For example, the string "ChatGPT is great!" is encoded into six tokens: ["Chat", "G", "PT", " is", " great",
+            "!"]. <br><br>
+            The total number of tokens in an API call affects:
+        </p><br>
+    </center>
+    <ul>
+        <li>How much your API call costs, as you pay per token</li>
+    </ul>
+    <ul>
+        <li>How long your API call takes, as writing more tokens takes more time</li>
+    </ul>
+    <ul>
+        <li>Whether your API call works at all, as total tokens must be below the model’s maximum limit (4097 tokens for
+            gpt-3.5-turbo)</li>
+    </ul> <br>
+    <center>
+        <p>Both input and output tokens count toward these quantities. For example, if your API call used 10 tokens in
+            the message input and you received 20 tokens in the message output, you would be billed for 30 tokens. Note
+            however that for some models the price per token is different for tokens in the input vs. the output (see
+            the pricing page for more information). <br><br>
+            To see how many tokens are used by an API call, check the usage field in the API response (e.g.,
+            response['usage']['total_tokens']). <br><br>
+            Chat models like gpt-3.5-turbo and gpt-4-turbo-preview use tokens in the same way as the models available in
+            the completions API, but because of their message-based formatting, it's more difficult to count how many
+            tokens will be used by a conversation.
+            To see how many tokens are in a text string without making an API call, use OpenAI’s tiktoken Python
+            library. Example code can be found in the OpenAI Cookbook’s guide on how to count tokens with tiktoken. <br>
+            <br>
+            Each message passed to the API consumes the number of tokens in the content, role, and other fields, plus a
+            few extra for behind-the-scenes formatting. This may change slightly in the future. <br> <br>
+            If a conversation has too many tokens to fit within a model’s maximum limit (e.g., more than 4097 tokens for
+            gpt-3.5-turbo), you will have to truncate, omit, or otherwise shrink your text until it fits. Beware that if
+            a message is removed from the messages input, the model will lose all knowledge of it. <br> <br>
+            Note that very long conversations are more likely to receive incomplete replies. For example, a
+            gpt-3.5-turbo conversation that is 4090 tokens long will have its reply cut off after just 6 tokens. <br>
+            <br>
+        </p>
+        <h2>Parameter details</h2>
+        <h3><u>Frequency and presence penalties</u></h3>
+        <p>The frequency and presence penalties found in the Chat Completions API and Legacy Completions API can be used
+            to reduce the likelihood of sampling repetitive sequences of tokens. <br><br>Reasonable values for the
+            penalty coefficients are around 0.1 to 1 if the aim is to just reduce repetitive samples somewhat. If the
+            aim is to strongly suppress repetition, then one can increase the coefficients up to 2, but this can
+            noticeably degrade the quality of samples. Negative values can be used to increase the likelihood of
+            repetition.</p><br>
+        <h3><u>Token log probabilities</u></h3>
+        <p>The logprobs parameter found in the Chat Completions API and Legacy Completions API, when requested, provides
+            the log probabilities of each output token, and a limited number of the most likely tokens at each token
+            position alongside their log probabilities. This can be useful in some cases to assess the confidence of the
+            model in its output, or to examine alternative responses the model might have given.
+        </p> <br> <br>
+        <h2>Completions API</h2>
+        <p>The completions API endpoint received its final update in July 2023 and has a different interface than the
+            new chat completions endpoint. Instead of the input being a list of messages, the input is a freeform text
+            string called a prompt. <br> <br>
+            An example legacy Completions API call looks like the following:</p><br>
+        <h3><u>Inserting text</u></h3>
+        <p>The completions endpoint also supports inserting text by providing a suffix in addition to the standard
+            prompt which is treated as a prefix. This need naturally arises when writing long-form text, transitioning
+            between paragraphs, following an outline, or guiding the model towards an ending. This also works on code,
+            and can be used to insert in the middle of a function or file.</p><br><br>
+        <h3><u>Completions response format</u></h3>
+        <p>An example completions API response looks as follows: <br>
+            In Python, the output can be extracted with response['choices'][0]['text']. <br>
+            The response format is similar to the response format of the Chat Completions API.</p> <br> <br>
+        <h2>Chat Completions vs. Completions</h2>
+        <p>The Chat Completions format can be made similar to the completions format by constructing a request using a
+            single user message. For example, one can translate from English to French with the following completions
+            prompt: <br> <br>
+            Likewise, the completions API can be used to simulate a chat between a user and an assistant by formatting
+            the input accordingly. <br> <br>
+            The difference between these APIs is the underlying models that are available in each. The chat completions
+            API is the interface to our most capable model (gpt-4-turbo-preview), and our most cost effective model
+            (gpt-3.5-turbo).
+        </p> <br> <br>
+        <h3><u>Which model should I use?</u></h3>
+        <p>We generally recommend that you use either gpt-4-turbo-preview or gpt-3.5-turbo. Which of these you should use depends on the complexity of the tasks you are using the models for. gpt-4-turbo-preview generally performs better on a wide range of evaluations. In particular, gpt-4-turbo-preview is more capable at carefully following complex instructions. By contrast gpt-3.5-turbo is more likely to follow just one part of a complex multi-part instruction. gpt-4-turbo-preview is less likely than gpt-3.5-turbo to make up information, a behavior known as "hallucination". gpt-4-turbo-preview also has a larger context window with a maximum size of 128,000 tokens compared to 4,096 tokens for gpt-3.5-turbo. However, gpt-3.5-turbo returns outputs with lower latency and costs much less per token. <br> <br>
+            We recommend experimenting in the playground to investigate which models provide the best price performance trade-off for your usage. A common design pattern is to use several distinct query types which are each dispatched to the model appropriate to handle them.</p><br><br>
+            <h3><u>Prompt engineering</u></h3>
+        <p>An awareness of the best practices for working with OpenAI models can make a significant difference in application performance. The failure modes that each exhibit and the ways of working around or correcting those failure modes are not always intuitive. There is an entire field related to working with language models which has come to be known as "prompt engineering", but as the field has progressed its scope has outgrown merely engineering the prompt into engineering systems that use model queries as components. To learn more, read our guide on prompt engineering which covers methods to improve model reasoning, reduce the likelihood of model hallucinations, and more. You can also find many useful resources including code samples in the OpenAI Cookbook.</p><br><br>
+        <h2>FAQ</h2>
+        <h3><u>How should I set the temperature parameter?</u></h3>
+        <p>Lower values for temperature result in more consistent outputs (e.g. 0.2), while higher values generate more diverse and creative results (e.g. 1.0). Select a temperature value based on the desired trade-off between coherence and creativity for your specific application. The temperature can range is from 0 to 2.</p><br><br>
+        <h3><u>Is fine-tuning available for the latest models?</u></h3>
+        <p>Yes, for some. Currently, you can only fine-tune gpt-3.5-turbo and our updated base models (babbage-002 and davinci-002). See the fine-tuning guide for more details on how to use fine-tuned models.
+        </p><br><br>
+        <h3><u>Do you store the data that is passed into the API?</u></h3>
+        <p>As of March 1st, 2023, we retain your API data for 30 days but no longer use your data sent via the API to improve our models. Learn more in our data usage policy. Some endpoints offer zero retention.
+        </p><br><br>
+        <h3><u>How can I make my application more safe?</u></h3>
+        <p>If you want to add a moderation layer to the outputs of the Chat API, you can follow our moderation guide to prevent content that violates OpenAI’s usage policies from being shown. We also encourage you to read our safety guide for more information on how to build safer systems.
+        </p><br><br>
+        <h3><u>Should I use ChatGPT or the API?</u></h3>
+        <p>ChatGPT offers a chat interface for our models and a range of built-in features such as integrated browsing, code execution, plugins, and more. By contrast, using OpenAI’s API provides more flexibility but requires that you write code or send the requests to our models programmatically.
+        </p><br><br>
+    </center>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embeddings</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        h1 {
+            color: #ffc451;
+        }
+
+        h2 {
+            color: #ffc451;
+        }
+
+        h3 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+
+        ul {
+            color: #ffc451;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Embeddings</h1>
+        <p>Learn how to turn text into numbers, unlocking use cases like search.</p><br>
+        <h2>What are embeddings?</h2>
+        <p>OpenAI’s text embeddings measure the relatedness of text strings. Embeddings are commonly used for:</p><br>
+    </center>
+    <ul>
+        <li>Search (where results are ranked by relevance to a query string)
+        </li>
+    </ul>
+    <ul>
+        <li>Clustering (where text strings are grouped by similarity)</li>
+    </ul>
+    <ul>
+        <li>Recommendations (where items with related text strings are recommended)</li>
+    </ul>
+    <ul>
+        <li>Anomaly detection (where outliers with little relatedness are identified)</li>
+    </ul>
+    <ul>
+        <li>Diversity measurement (where similarity distributions are analyzed)</li>
+    </ul>
+    <ul>
+        <li>Classification (where text strings are classified by their most similar label)</li>
+    </ul><br><br>
+    <center>
+        <p>An embedding is a vector (list) of floating point numbers. The distance between two vectors measures their
+            relatedness. Small distances suggest high relatedness and large distances suggest low relatedness. <br><br>
+            Visit our pricing page to learn about Embeddings pricing. Requests are billed based on the number of tokens
+            in the input.</p><br><br>
+        <h2>How to get embeddings</h2>
+        <p>To get an embedding, send your text string to the embeddings API endpoint along with the embedding model name
+            (e.g. text-embedding-3-small). The response will contain an embedding (list of floating point numbers),
+            which you can extract, save in a vector database, and use for many different use cases:</p><br>
+        <img src="assets/img/code/Capture.PNG" alt="">
+        <p>The response will contain the embedding vector along with some additional metadata.</p> <br><br>
+        <img src="assets/img/code/Capture 2.PNG" alt="">
+        <p>By default, the length of the embedding vector will be 1536 for text-embedding-3-small or 3072 for
+            text-embedding-3-large. You can reduce the dimensions of the embedding by passing in the dimensions
+            parameter without the embedding losing its concept-representing properties. We go into more detail on
+            embedding dimensions in the embedding use case section.</p><br><br>
+        <h2>Embedding models</h2>
+        <p>OpenAI offers two powerful third-generation embedding model (denoted by -3 in the model ID). You can read the
+            embedding v3 announcement blog post for more details. <br><br>
+            Usage is priced per input token, below is an example of pricing pages of text per US dollar (assuming ~800
+            tokens per page):</p><br><br>
+        <img src="assets/img/code/Capture 3.PNG" alt=""><br><br>
+        <h2>Use cases</h2>
+        <p>Here we show some representative use cases. We will use the Amazon fine-food reviews dataset for the
+            following examples.</p><br><br>
+        <h3><u>Obtaining the embeddings</u></h3>
+        <p>The dataset contains a total of 568,454 food reviews Amazon users left up to October 2012. We will use a
+            subset of 1,000 most recent reviews for illustration purposes. The reviews are in English and tend to be
+            positive or negative. Each review has a ProductId, UserId, Score, review title (Summary) and review body
+            (Text). For example: <br> <br>We will combine the review summary and review text into a single combined
+            text. The model will encode this combined text and output a single vector embedding.</p><br><br>
+    </center>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Reducing embedding dimensions</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Question answering using embeddings-based search</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Text search using embeddings</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Code search using embeddings</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Recommendations using embeddings</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Data visualization in 2D</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Embedding as a text feature encoder for ML algorithms</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Classification using the embedding features</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Zero-shot classification</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Obtaining user and product embeddings for cold-start recommendation</b></p>
+    <p><box-icon name='chevron-right' animation='fade-right' color='#ffc451'></box-icon><b>Clustering</b></p>
+    <center>
+        <h2>Frequently asked questions</h2>
+        <h3><u>How can I tell how many tokens a string has before I embed it?</u></h3>
+        <p>In Python, you can split a string into tokens with OpenAI's tokenizer tiktoken. <br><br>For third-generation embedding models like text-embedding-3-small, use the cl100k_base encoding. <br>
+            More details and example code are in the OpenAI Cookbook guide how to count tokens with tiktoken.</p><br><br>
+            <h3><u>How can I retrieve K nearest embedding vectors quickly?</u></h3>
+            <p>For searching over many vectors quickly, we recommend using a vector database. You can find examples of working with vector databases and the OpenAI API in our Cookbook on GitHub.</p><br><br>
+            <h3><u>Which distance function should I use?</u></h3>
+            <p>We recommend cosine similarity. The choice of distance function typically doesn’t matter much.</p><br><br>
+    </center>
+    <p>OpenAI embeddings are normalized to length 1, which means that:</p><br>
+    <ul>
+        <li>Cosine similarity can be computed slightly faster using just a dot product</li>
+    </ul>
+    <ul>
+        <li>Cosine similarity and Euclidean distance will result in the identical rankings </li>
+    </ul><br><br>
+    <center>
+        <h2>Can I share my embeddings online?</h2>
+        <p>Yes, customers own their input and output from our models, including in the case of embeddings. You are responsible for ensuring that the content you input to our API does not violate any applicable law or our Terms of Use.</p><br><br>
+        <h2>Do V3 embedding models know about recent events?</h2>
+        <p>No, the text-embedding-3-large and text-embedding-3-small models lack knowledge of events that occurred after September 2021. This is generally not as much of a limitation as it would be for text generation models but in certain edge cases it can reduce performance.</p>
+    </center>
+</body>
+
+</html>
